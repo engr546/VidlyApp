@@ -18,12 +18,18 @@
         <div class="input-group date" data-provide="datepicker">
             @Html.TextBoxFor(c => c.Birthdate, new { @class = "form-control", placeholder = "mm/dd/yyyy" })
             <div class="input-group-addon">
-                <i class="fa fa-calendar" style="font-size: 30px" aria-hidden="true"></i>
+                <i class="fa fa-calendar" style="margin: 8px 10px; font-size: 20px" aria-hidden="true"></i>
             </div>
         </div>
     </div>
 
-    <button type="submit" class="btn btn-success">Send invitation</button>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(m => m.IsSubscribeToNewsLetter) Subscribed to Newsletter?
+        </label>
+    </div>
+
+    <button type="submit" class="btn btn-success">Submit</button>
 }
 
 <script>
