@@ -81,6 +81,7 @@ namespace Vidly.Controllers
             return RedirectToAction("Index", "Customers");
         }
 
+        // Unused
         public ActionResult Details(int id)
         {
             var customer = _context.Customers.Include(c => c.MembershipType).SingleOrDefault(c => c.Id == id);
