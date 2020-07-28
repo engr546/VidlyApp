@@ -6,7 +6,7 @@
 }
 <h2>New Customer</h2>
 
-@using (Html.BeginForm("Create", "Customers", FormMethod.Post, new { @class = "form-horizontal" }))
+@using (Html.BeginForm("Save", "Customers", FormMethod.Post, new { @class = "form-horizontal" }))
 {
     // Name
     <div class="form-group">
@@ -37,6 +37,9 @@
             @Html.CheckBoxFor(m => m.Customer.IsSubscribeToNewsLetter) Subscribed to Newsletter?
         </label>
     </div>
+
+    // Hidden Field
+    @Html.HiddenFor(c => c.Customer.Id);
 
     // Save
     <button type="submit" class="btn btn-success">Save</button>
