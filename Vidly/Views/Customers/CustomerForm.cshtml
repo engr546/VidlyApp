@@ -9,11 +9,20 @@
 
 @using (Html.BeginForm("Save", "Customers", FormMethod.Post, new { @class = "form-horizontal" }))
 {
+    @Html.ValidationSummary(true, "Pls fix the following errors.", new { @class = "text-danger" })
+
     // Name
     <div class="form-group">
         @Html.LabelFor(c => c.Customer.Name):
         @Html.TextBoxFor(c => c.Customer.Name, new { @class = "form-control", placeholder = "Jane Doe" })
         @Html.ValidationMessageFor(c => c.Customer.Name)
+    </div>
+
+    // Membership Type
+    <div class="form-group">
+        @Html.LabelFor(c => c.Customer.MembershipTypeId):
+        @Html.DropDownListFor(c => c.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership Type", new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Customer.MembershipTypeId)
     </div>
 
     // Birthdate
@@ -26,13 +35,6 @@
             </div>
         </div>
         @Html.ValidationMessageFor(c => c.Customer.Birthdate)
-    </div>
-
-    // Membership Type
-    <div class="form-group">
-        @Html.LabelFor(c => c.Customer.MembershipTypeId):
-        @Html.DropDownListFor(c => c.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership Type", new { @class = "form-control" })
-        @Html.ValidationMessageFor(c => c.Customer.MembershipTypeId)
     </div>
 
     // Checkbox
