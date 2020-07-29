@@ -47,6 +47,9 @@
     // Hidden Field
     @Html.HiddenFor(c => c.Customer.Id);
 
+    //Anti-Forgery
+    @Html.AntiForgeryToken()
+
     // Save
     <button type="submit" class="btn btn-success">Save</button>
 }
