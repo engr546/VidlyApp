@@ -21,6 +21,7 @@ namespace Vidly.ViewModels
         [Display(Name = "Release Date")]
         public DateTime? ReleaseDate { get; set; }
 
+        // Foreign Key
         [Required]
         [Display(Name = "Genre")]
         public byte? GenreTypeId { get; set; }
@@ -42,7 +43,7 @@ namespace Vidly.ViewModels
         {
             Id = 0;
             ReleaseDate = DateTime.Now;
-            Stocks = 0;
+            Stocks = 1;
         }
 
         public MovieFormViewModel(Movie movie)

@@ -13,19 +13,19 @@ namespace Vidly.ViewModels
 
         public int? Id { get; set; }
 
-        [Required] //Data Annotation/Attribute
+        [Required]
         [StringLength(255)]
         public string Name { get; set; }
-
-        // Foreign Key
-        [Display(Name = "Membership Type")]
-        public byte MembershipTypeId { get; set; }
 
         [Display(Name = "Date of Birth")]
         [LegalAgeMember]
         public DateTime? Birthdate { get; set; }
 
         public bool IsSubscribeToNewsLetter { get; set; }
+
+        // Foreign Key
+        [Display(Name = "Membership Type")]
+        public byte MembershipTypeId { get; set; }
 
         public string Title
         {
