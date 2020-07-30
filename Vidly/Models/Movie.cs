@@ -17,16 +17,18 @@ namespace Vidly.Models
         [Display(Name ="Release Date")]
         public DateTime ReleaseDate { get; set; }
 
-        public DateTime DateAdded { get; set; }
-        
-        [Display(Name = "Number in Stock")]
-        public short Stocks { get; set; }
-
         // Navigation Property
         public GenreType GenreType { get; set; }
 
         // Foreign Key
         [Display(Name = "Genre")]
         public byte GenreTypeId { get; set; }
+
+        [Display(Name = "Number in Stock")]
+        [Range(1,1000)]
+        public short Stocks { get; set; }
+
+        public DateTime DateAdded { get; set; }
+
     }
 }

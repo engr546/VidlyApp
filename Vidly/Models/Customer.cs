@@ -10,15 +10,9 @@ namespace Vidly.Models
     {
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Please enter Customer's Name")] //Data Annotation/Attribute
+        [Required] //Data Annotation/Attribute
         [StringLength(255)]
         public string Name { get; set; }
-
-        public bool IsSubscribeToNewsLetter { get; set; }
-
-        [Display(Name = "Date of Birth")]
-        [LegalAgeMember]
-        public DateTime? Birthdate { get; set; }
 
         // Navigation Property
         public MembershipType MembershipType { get; set; }
@@ -26,5 +20,12 @@ namespace Vidly.Models
         // Foreign Key
         [Display(Name = "Membership Type")]
         public byte MembershipTypeId { get; set; }
+
+        [Display(Name = "Date of Birth")]
+        [LegalAgeMember]
+        public DateTime? Birthdate { get; set; }
+
+        public bool IsSubscribeToNewsLetter { get; set; }
+
     }
 }

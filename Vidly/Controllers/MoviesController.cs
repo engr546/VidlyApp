@@ -12,7 +12,7 @@ namespace Vidly.Controllers
     public class MoviesController : Controller
     {
 
-        private ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
         public MoviesController()
         {
@@ -52,9 +52,8 @@ namespace Vidly.Controllers
             if (movies == null)
                 return HttpNotFound();
 
-            var viewModel = new MovieFormViewModel
+            var viewModel = new MovieFormViewModel(movies)
             {
-                Movie = movies,
                 GenreTypes = _context.GenreTypes.ToList()
             };
 
@@ -63,36 +62,36 @@ namespace Vidly.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
+
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new MovieFormViewModel(movie)
+                {
+                    GenreTypes = _context.GenreTypes.ToList()
+                };
+                return View("MovieForm", viewModel);
+            }
+
             if (movie.Id == 0)
             {
-                movie.DateAdded = DateTime.Now;   
+                movie.DateAdded = DateTime.Now;
                 _context.Movies.Add(movie);
             }
             else
             {
                 var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
                 movieInDb.Name = movie.Name;
+                movieInDb.ReleaseDate = movie.ReleaseDate;
                 movieInDb.GenreTypeId = movie.GenreTypeId;
                 movieInDb.Stocks = movie.Stocks;
-                movieInDb.ReleaseDate = movie.ReleaseDate;
             }
 
             _context.SaveChanges();
 
             return RedirectToAction("Index", "Movies");
-        }
-
-        // Unused
-        public ActionResult Details(int id)
-        {
-            var movies = _context.Movies.Include(m => m.GenreType).SingleOrDefault(m => m.Id == id);
-
-            if (movies == null)
-                return HttpNotFound();
-
-            return View(movies);
         }
 
     }

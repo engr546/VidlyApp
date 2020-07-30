@@ -9,43 +9,41 @@
 
 @using (Html.BeginForm("Save", "Customers", FormMethod.Post, new { @class = "form-horizontal" }))
 {
-    @Html.ValidationSummary(true, "Pls fix the following errors.", new { @class = "text-danger" })
-
     // Name
     <div class="form-group">
-        @Html.LabelFor(c => c.Customer.Name):
-        @Html.TextBoxFor(c => c.Customer.Name, new { @class = "form-control", placeholder = "Jane Doe" })
-        @Html.ValidationMessageFor(c => c.Customer.Name)
+        @Html.LabelFor(c => c.Name):
+        @Html.TextBoxFor(c => c.Name, new { @class = "form-control", placeholder = "Jane Doe" })
+        @Html.ValidationMessageFor(c => c.Name)
     </div>
 
     // Membership Type
     <div class="form-group">
-        @Html.LabelFor(c => c.Customer.MembershipTypeId):
-        @Html.DropDownListFor(c => c.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership Type", new { @class = "form-control" })
-        @Html.ValidationMessageFor(c => c.Customer.MembershipTypeId)
+        @Html.LabelFor(c => c.MembershipTypeId):
+        @Html.DropDownListFor(c => c.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership Type", new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.MembershipTypeId)
     </div>
 
     // Birthdate
     <div class="form-group">
-        @Html.LabelFor(c => c.Customer.Birthdate):
+        @Html.LabelFor(c => c.Birthdate):
         <div class="input-group date" data-provide="datepicker">
-            @Html.TextBoxFor(c => c.Customer.Birthdate, "{0: MM/d/yyyy}", new { @class = "form-control", placeholder = "mm/dd/yyyy" })
+            @Html.TextBoxFor(c => c.Birthdate, "{0: MM/d/yyyy}", new { @class = "form-control", placeholder = "mm/dd/yyyy" })
             <div class="input-group-addon">
                 <i class="fa fa-calendar" style="margin: 8px 10px; font-size: 20px" aria-hidden="true"></i>
             </div>
         </div>
-        @Html.ValidationMessageFor(c => c.Customer.Birthdate)
+        @Html.ValidationMessageFor(c => c.Birthdate)
     </div>
 
     // Checkbox
     <div class="checkbox">
         <label>
-            @Html.CheckBoxFor(m => m.Customer.IsSubscribeToNewsLetter) Subscribed to Newsletter?
+            @Html.CheckBoxFor(m => m.IsSubscribeToNewsLetter) Subscribed to Newsletter?
         </label>
     </div>
 
     // Hidden Field
-    @Html.HiddenFor(c => c.Customer.Id);
+    @Html.HiddenFor(c => c.Id);
 
     //Anti-Forgery
     @Html.AntiForgeryToken()
