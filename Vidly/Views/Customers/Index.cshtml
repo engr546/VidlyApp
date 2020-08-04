@@ -43,10 +43,13 @@
                         }
                     },
                     {
-                        data: "name"
+                        data: "membershipType.name"
                     },
                     {
-                        data: "name"
+                        data: "membershipType.discountRate",
+                        render: function (data) {
+                            return data + "%";
+                        }
                     },
                     {
                         data: "id",
