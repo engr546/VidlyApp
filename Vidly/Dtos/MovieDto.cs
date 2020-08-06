@@ -22,5 +22,6 @@ namespace Vidly.Dtos
         public short Stocks { get; set; }
 
         public byte GenreTypeId { get; set; }
+        public GenreTypeDto GenreType { get; set; }
     }
 }
