@@ -257,6 +257,10 @@
     <Compile Include="Migrations\202007261429147_PopulateGenreTypeAgain.Designer.cs">
       <DependentUpon>202007261429147_PopulateGenreTypeAgain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008060730444_SeedUsers.cs" />
+    <Compile Include="Migrations\202008060730444_SeedUsers.Designer.cs">
+      <DependentUpon>202008060730444_SeedUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -266,6 +270,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\RoleName.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CustomerFormViewModel.cs" />
@@ -816,6 +821,7 @@
     <Content Include="webfonts\fa-brands-400.ttf" />
     <Content Include="webfonts\fa-brands-400.eot" />
     <Content Include="Views\Movies\MovieForm.cshtml" />
+    <Content Include="Views\Movies\ReadOnlyIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -875,6 +881,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007261429147_PopulateGenreTypeAgain.resx">
       <DependentUpon>202007261429147_PopulateGenreTypeAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008060730444_SeedUsers.resx">
+      <DependentUpon>202008060730444_SeedUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
