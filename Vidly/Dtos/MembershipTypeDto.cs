@@ -9,7 +9,5 @@ namespace Vidly.Dtos
     {
         public byte Id { get; set; }
         public string Name { get; set; }
-        // Temporary
-        public byte DiscountRate { get; set; }
     }
 }
