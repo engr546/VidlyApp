@@ -23,6 +23,8 @@ namespace Vidly.Models
         [Range(1, 1000)]
         public short Stocks { get; set; }
 
+        public short Available { get; set; }
+
         // Navigation Property
         public GenreType GenreType { get; set; }
 
