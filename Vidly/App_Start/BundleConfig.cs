@@ -14,7 +14,8 @@ namespace Vidly
                         "~/Scripts/bootbox.min.js",
                         "~/Scripts/bootstrap-datepicker.min.js",
                         "~/Scripts/DataTables/jquery.datatables.min.js",
-                        "~/Scripts/DataTables/datatables.bootstrap4.min.js"));
+                        "~/Scripts/DataTables/datatables.bootstrap4.min.js",
+                        "~/Scripts/typeahead.bundle.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -26,9 +27,9 @@ namespace Vidly
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.min.css",
-                      "~/Content/fontawesome-all.min.css",
                       "~/Content/bootstrap-datepicker.min.css",
                       "~/Content/DataTables/css/dataTables.bootstrap4.min.css",
+                      "~/Content/typeahead.css",
                       "~/Content/site.css"));
         }
     }

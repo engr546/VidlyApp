@@ -34,7 +34,8 @@ namespace Vidly.Controllers.Api
         // GET: /api/movies/1
         public IHttpActionResult GetMovie(int id)
         {
-            var movie = _context.Movies.SingleOrDefault(c => c.Id == id);
+            var movie = _context.Movies
+                .SingleOrDefault(c => c.Id == id);
 
             if (movie == null)
                 return NotFound();
